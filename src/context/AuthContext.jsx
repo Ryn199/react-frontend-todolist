@@ -19,7 +19,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const response = await axios.post('http://localhost:8000/api/login', { email, password });
+      const response = await axios.post('https://todolist-api.ridhoyudiana.my.id/api/login', { email, password });
       const { username, email: userEmail, token: userToken } = response.data.data;
 
       // Update user state setelah login berhasil
@@ -38,7 +38,7 @@ export const AuthProvider = ({ children }) => {
     try {
       // Mengirim permintaan POST untuk logout dan menghapus session di server
       await axios.post(
-        'http://localhost:8000/api/logout', 
+        'https://todolist-api.ridhoyudiana.my.id/api/logout', 
         {},
         {
           headers: {

@@ -7,7 +7,7 @@ export const fetchTodoLists = createAsyncThunk(
   async ({ projectId, token }) => {
     try {
       const response = await axios.get(
-        `http://localhost:8000/api/projects/${projectId}/todolists`,
+        `https://todolist-api.ridhoyudiana.my.id/api/projects/${projectId}/todolists`,
         {
           headers: {
             Authorization: `Bearer ${token}`, // Tambahkan token ke headers

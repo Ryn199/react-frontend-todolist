@@ -78,7 +78,7 @@ const TodoListPage = () => {
     }
 
     const response = await fetch(
-      `http://localhost:8000/api/projects/${projectId}/todoLists/${newTask.todoListId}/tasks`,
+      `https://todolist-api.ridhoyudiana.my.id/api/projects/${projectId}/todoLists/${newTask.todoListId}/tasks`,
       {
         method: "POST",
         headers: {
@@ -110,7 +110,7 @@ const TodoListPage = () => {
     );
     if (isConfirmed) {
       const response = await fetch(
-        `http://localhost:8000/api/projects/${projectId}/todoLists/${newTask.todoListId}/tasks/${taskId}`,
+        `https://todolist-api.ridhoyudiana.my.id/api/projects/${projectId}/todoLists/${newTask.todoListId}/tasks/${taskId}`,
         {
           method: "DELETE",
           headers: {
@@ -132,7 +132,7 @@ const TodoListPage = () => {
     if (!editTodo.name || !editTodo.description) return;
 
     const response = await fetch(
-      `http://localhost:8000/api/projects/${projectId}/todoLists/${editTodo.id}`,
+      `https://todolist-api.ridhoyudiana.my.id/api/projects/${projectId}/todoLists/${editTodo.id}`,
       {
         method: "PUT",
         headers: {
@@ -155,7 +155,7 @@ const TodoListPage = () => {
     if (!newTodo.name || !newTodo.description) return;
 
     const response = await fetch(
-      `http://localhost:8000/api/projects/${projectId}/todoLists`,
+      `https://todolist-api.ridhoyudiana.my.id/api/projects/${projectId}/todoLists`,
       {
         method: "POST",
         headers: {
@@ -177,7 +177,7 @@ const TodoListPage = () => {
 
   const handleEditTaskSave = async () => {
     const response = await fetch(
-      `http://localhost:8000/api/projects/${projectId}/todoLists/${updatedTask.todo_list_id}/tasks/${selectedTask.id}`,
+      `https://todolist-api.ridhoyudiana.my.id/api/projects/${projectId}/todoLists/${updatedTask.todo_list_id}/tasks/${selectedTask.id}`,
       {
         method: "PUT",
         headers: {
@@ -202,7 +202,7 @@ const TodoListPage = () => {
     if (!confirmDelete) return;
 
     const response = await fetch(
-      `http://localhost:8000/api/projects/${projectId}/todoLists/${id}`,
+      `https://todolist-api.ridhoyudiana.my.id/api/projects/${projectId}/todoLists/${id}`,
       {
         method: "DELETE",
         headers: {

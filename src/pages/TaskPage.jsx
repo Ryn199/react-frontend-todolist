@@ -17,7 +17,7 @@ const TaskPage = () => {
   const [status, setStatus] = useState("loading");
   const [error, setError] = useState(null);
   const token = localStorage.getItem("token");
-  const baseUrl = "http://localhost:8000"; // Ganti dengan base URL yang sesuai
+  const baseUrl = "https://todolist-api.ridhoyudiana.my.id"; // Ganti dengan base URL yang sesuai
 
   // Ambil tasks berdasarkan projectId dan todoListId
   useEffect(() => {

@@ -41,7 +41,7 @@ const ProjectPage = () => {
     const fetchAssignedProjects = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8000/api/projects/user/${loggedInUserId}`,
+          `https://todolist-api.ridhoyudiana.my.id/api/projects/user/${loggedInUserId}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -72,7 +72,7 @@ const ProjectPage = () => {
     setIsAdding(true);
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/projects",
+        "https://todolist-api.ridhoyudiana.my.id/api/projects",
         newProject,
         {
           headers: {
@@ -129,7 +129,7 @@ const ProjectPage = () => {
 
     try {
       const response = await axios.delete(
-        `http://localhost:8000/api/projects/${projectId}`,
+        `https://todolist-api.ridhoyudiana.my.id/api/projects/${projectId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -152,7 +152,7 @@ const ProjectPage = () => {
     }
     try {
       const response = await axios.put(
-        `http://localhost:8000/api/projects/${selectedProject.id}`,
+        `https://todolist-api.ridhoyudiana.my.id/api/projects/${selectedProject.id}`,
         selectedProject,
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -185,7 +185,7 @@ const ProjectPage = () => {
   
     try {
       const response = await axios.post(
-        `http://localhost:8000/api/setting_user_project/${selectedProject.id}/assignUser/${selectedUser.id}`,
+        `https://todolist-api.ridhoyudiana.my.id/api/setting_user_project/${selectedProject.id}/assignUser/${selectedUser.id}`,
         {},
         {
           headers: {
@@ -217,7 +217,7 @@ const ProjectPage = () => {
   const handleSearchUser = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:8000/api/user/search/${searchEmail}`,
+        `https://todolist-api.ridhoyudiana.my.id/api/user/search/${searchEmail}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

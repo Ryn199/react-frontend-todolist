@@ -6,7 +6,7 @@ export const fetchTasks = createAsyncThunk(
   "tasks/fetchTasks",
   async ({ projectId, todoListId, token }) => {
     const response = await fetch(
-      `http://localhost:8000/api/projects/${projectId}/todoLists/${todoListId}/tasks`,
+      `https://todolist-api.ridhoyudiana.my.id/api/projects/${projectId}/todoLists/${todoListId}/tasks`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
