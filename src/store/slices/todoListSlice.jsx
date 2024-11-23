@@ -5,15 +5,19 @@ import axios from 'axios';
 export const fetchTodoLists = createAsyncThunk(
   'todoLists/fetchTodoLists',
   async ({ projectId, token }) => {
-    const response = await axios.get(
-      `https://todolist-api.ridhoyudiana.my.id/api/projects/${projectId}/todoLists`,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`, // Tambahkan token ke headers
-        },
-      }
-    );
-    return response.data;
+    try {
+      const response = await axios.get(
+        `http://localhost:8000/api/projects/${projectId}/todolists`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`, // Tambahkan token ke headers
+          },
+        }
+      );
+      return response.data;
+    } catch (error) {
+      throw new Error(error.response?.data?.message || error.message);
+    }
   }
 );
 
@@ -24,7 +28,7 @@ const todoListSlice = createSlice({
     status: 'idle', // idle | loading | succeeded | failed
     error: null,
   },
-  reducers: {}, // Jika ada aksi tambahan, bisa ditambahkan di sini
+  reducers: {}, // Tidak ada aksi tambahan saat ini
   extraReducers: (builder) => {
     builder
       .addCase(fetchTodoLists.pending, (state) => {
@@ -32,7 +36,7 @@ const todoListSlice = createSlice({
       })
       .addCase(fetchTodoLists.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.todoLists = action.payload; // Data dari API
+        state.todoLists = action.payload; // Ambil data todo lists dari API
       })
       .addCase(fetchTodoLists.rejected, (state, action) => {
         state.status = 'failed';

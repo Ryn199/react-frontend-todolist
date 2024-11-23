@@ -2,7 +2,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const API_BASE_URL = 'https://todolist-api.ridhoyudiana.my.id';
+const API_BASE_URL = 'http://localhost:8000';
 
 // Async Thunk untuk login
 export const loginUser = createAsyncThunk('auth/loginUser', async (credentials, { rejectWithValue }) => {

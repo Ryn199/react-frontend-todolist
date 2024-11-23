@@ -19,7 +19,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const response = await axios.post('https://todolist-api.ridhoyudiana.my.id/api/login', { email, password });
+      const response = await axios.post('http://localhost:8000/api/login', { email, password });
       const { username, email: userEmail, token: userToken } = response.data.data;
 
       // Update user state setelah login berhasil
@@ -27,6 +27,8 @@ export const AuthProvider = ({ children }) => {
       setToken(userToken);
       localStorage.setItem('token', userToken); // Simpan token di localStorage
       localStorage.setItem('user', JSON.stringify({ username, email: userEmail })); // Simpan data user di localStorage
+      localStorage.setItem('user_id', response.data.data.user_id); // Menyimpan user_id 
+
     } catch (error) {
       throw error; // Menangani error pada LoginPage
     }
@@ -36,7 +38,7 @@ export const AuthProvider = ({ children }) => {
     try {
       // Mengirim permintaan POST untuk logout dan menghapus session di server
       await axios.post(
-        'https://todolist-api.ridhoyudiana.my.id/api/logout', 
+        'http://localhost:8000/api/logout', 
         {},
         {
           headers: {

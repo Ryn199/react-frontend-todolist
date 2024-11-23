@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://todolist-api.ridhoyudiana.my.id/api';
+const API_URL = 'http://localhost:8000/api';
 
 export const loginUser = async (email, password) => {
     try {
